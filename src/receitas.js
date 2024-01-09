@@ -217,6 +217,7 @@ const receitas = [
     tempoPreparo: "15",
     tempoCozimento: "30",
     picante: 0,
+    tags: ["Frango", "Almoço", "Jantar"],
   },
   // Fricasset
   {
@@ -245,6 +246,7 @@ const receitas = [
     tempoPreparo: "15",
     tempoCozimento: "30",
     picante: 0,
+    tags: ["Frango", "Almoço", "Jantar"],
   },
   // Cheesy Rice Chicken
   {
@@ -314,6 +316,7 @@ const receitas = [
     tempoCozimento: "30",
     picante: 0,
     porcoes: 4,
+    tags: ["Batata", "Side"],
   },
 
   //#endregion

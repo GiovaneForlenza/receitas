@@ -5,28 +5,32 @@ function App() {
   const listaReceitas = receitas;
   return (
     <>
-      <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+      <div className="grid gap-14 mb-6 lg:mb-16 sm:grid-cols-2 lg:grid-cols-3 ">
         {listaReceitas.map((receita) => {
-          // console.log("./assets/cover-photos/" + receita.img);
           return (
             <div
-              className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700 hover:cursor-pointer"
+              className="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:cursor-pointer flex flex-col max-w-[400px]"
               key={receita.id}
             >
-              <>
-                <img
-                  className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg"
-                  src={`./assets/cover-photos/${receita.img}`}
-                  alt={receita.nome}
-                />
-              </>
-              <div className="p-5 text-left">
-                <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {/* Image */}
+              <div
+                className="w-full rounded-lg border h-40 sm:rounded-none sm:rounded-t-lg"
+                style={{
+                  backgroundImage: `url(./assets/fotos-receitas/${receita.img})`,
+                }}
+                alt={receita.nome}
+              />
+              {/* Text */}
+              <div className="p-3 text-left">
+                <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">
                   <span href="#">{receita.nome}</span>
                 </h3>
-                {receita.tags.map((tag) => {
+                {receita.tags.map((tag, id) => {
                   return (
-                    <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                    <span
+                      className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300"
+                      key={id}
+                    >
                       {tag}
                     </span>
                   );

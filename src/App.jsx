@@ -5,7 +5,7 @@ function App() {
   const listaReceitas = receitas;
   return (
     <>
-      <div className="grid gap-14 mb-6 lg:mb-16 sm:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid gap-8 md:gap-14 mb-6 lg:mb-16 sm:grid-cols-2 lg:grid-cols-3 ">
         {listaReceitas.map((receita) => {
           return (
             <div
@@ -13,12 +13,10 @@ function App() {
               key={receita.id}
             >
               {/* Image */}
-              <div
-                className="w-full rounded-lg border h-40 sm:rounded-none sm:rounded-t-lg"
-                style={{
-                  backgroundImage: `url(./assets/fotos-receitas/${receita.img})`,
-                }}
+              <img
+                className="w-full rounded-lg object-cover		 h-60 sm:rounded-none sm:rounded-t-lg"
                 alt={receita.nome}
+                src={`../public/fotos-receitas/${receita.img}`}
               />
               {/* Text */}
               <div className="p-3 text-left">

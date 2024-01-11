@@ -7,7 +7,9 @@ import PaginaReceita from "./paginas/PaginaReceita";
 
 function App() {
   const { selecionouReceita } = useContext(ReceitaContext);
-  return <>{!selecionouReceita ? <Home /> : <PaginaReceita />}</>;
+  return (
+    <div className="">{!selecionouReceita ? <Home /> : <PaginaReceita />}</div>
+  );
 }
 
 export default App;

@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="grid gap-8 mb-6 mt-14 lg:mb-16 sm:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid gap-8 mt-20 pb-4 sm:grid-cols-2 lg:grid-cols-3 m-auto w-fit ">
         {receitas.map((receita) => {
           return (
             <div
@@ -20,7 +20,7 @@ function Home() {
             >
               {/* Image */}
               <img
-                className="w-full rounded-lg object-cover		 h-60 sm:rounded-none sm:rounded-t-lg"
+                className="w-full rounded-lg object-cover h-60 sm:rounded-none sm:rounded-t-lg"
                 alt={receita.nome}
                 src={`/fotos-receitas/${receita.img}`}
               />

@@ -4,7 +4,7 @@ import { PaginaContext } from "../contexts/PaginaContext";
 
 function Header() {
   const { selecionarReceita } = useContext(ReceitaContext);
-  const { paginaAtiva } = useContext(PaginaContext);
+  const { paginaAtiva, setPaginaAtiva, PAGINAS } = useContext(PaginaContext);
   return (
     <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -51,9 +51,15 @@ function Header() {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                className={`block py-2 px-3 text-white bg-blue-700 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500  rounded md:bg-transparent ${
+                  paginaAtiva === PAGINAS.HOME &&
+                  "md:text-blue-700  md:dark:text-blue-500"
+                } md:p-0`}
                 aria-current="page"
-                onClick={() => selecionarReceita(null)}
+                onClick={() => {
+                  selecionarReceita(null);
+                  setPaginaAtiva(PAGINAS.HOME);
+                }}
               >
                 Home
               </a>

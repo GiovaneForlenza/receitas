@@ -19,12 +19,12 @@ function PaginaReceita() {
             src={`/fotos-receitas/${receita.img}`}
           />
           {/* Título */}
-          <div className="bg-gray-50 shadow dark:bg-gray-800 dark:border-gray-700 w-[600px] m-auto -top-12 relative rounded-sm">
-            <div className="p-2">
+          <div className="bg-gray-50 shadow dark:bg-gray-800 dark:border-gray-700 w-[600px] m-auto -top-12 relative rounded-sm border ">
+            <div className="p-2 mb-2">
               <h1 className="text-4xl">{receita.nome}</h1>
             </div>
-            <div className="flex p-4 justify-between border-y">
-              <div className="flex flex-col items-center justify-center border-r w-full">
+            <div className="flex text-lg justify-between border-y m-4 border-gray-500 ">
+              <div className="flex flex-col items-center justify-center border-r w-full m-2 border-gray-500 ">
                 <span>Dificuldade: {receita.complexidade}</span>
                 <span>Porções: {receita.porcoes}</span>
               </div>
@@ -37,16 +37,15 @@ function PaginaReceita() {
           </div>
         </div>
         {/* Ingredientes e preparo */}
-        <div className="w-full  p-4  grid gap-8 sm:grid-cols-2 ">
+        <div className="w-full p-4  grid gap-8 sm:grid-cols-2 ">
           {/* Ingredientes */}
-          <div className="pt-4 border w-full h-fit text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="pt-4 border w-full text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <span className="text-3xl">Ingredientes</span>
 
             <div className="m-3 flex flex-col text-gray-700 bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
               <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                 {receita.ingredientes.map((ingrediente, id) => {
                   checkboxes.push(false);
-                  console.log(id % 2 === 0);
                   return (
                     <div
                       role="button"
@@ -72,7 +71,6 @@ function PaginaReceita() {
                                 className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-8000 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"
                                 onClick={() => {
                                   checkboxes[id] = !checkboxes[id];
-                                  console.log(checkboxes);
                                 }}
                               />
                               <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
@@ -101,12 +99,11 @@ function PaginaReceita() {
                     </div>
                   );
                 })}
-                {console.log(checkboxes)}
               </nav>
             </div>
           </div>
           {/* Modo de preparo */}
-          <div className="pt-4 border w-full text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="pt-4 border w-full h-fit text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <span className="text-3xl">Modo de preparo</span>
             <div className="m-3 p-2 flex flex-col  bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
               {receita.passos.map((passo, id) => {

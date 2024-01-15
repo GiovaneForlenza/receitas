@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import receitas from "../receitas";
 import { ReceitaContext } from "../contexts/ReceitaContext";
 import Header from "../components/Header";
+import { PaginaContext } from "../contexts/PaginaContext";
 
 function Home() {
   const { selecionarReceita } = useContext(ReceitaContext);
+  const { setPaginaAtiva, PAGINAS } = useContext(PaginaContext);
   return (
     <>
       <Header />
-      <div className="grid gap-8 mt-20 pb-4 sm:grid-cols-2 lg:grid-cols-3 m-auto w-fit ">
+      <div className="px-2 grid gap-8 mt-20 pb-4 sm:grid-cols-2 lg:grid-cols-3 m-auto w-fit ">
         {receitas.map((receita) => {
           return (
             <div
@@ -16,6 +18,7 @@ function Home() {
               key={receita.id}
               onClick={() => {
                 selecionarReceita(receita.id);
+                setPaginaAtiva(PAGINAS.PAGINA_RECEITA);
               }}
             >
               {/* Image */}
@@ -41,22 +44,18 @@ function Home() {
                     );
                   })}
                 </div>
-                <div className="mt-2 mb-4 flex flex-col font-light text-gray-500 dark:text-gray-400">
-                  <div className="flex flex-row justify-between">
-                    <span className="w-fit ">
+                <div className="mt-4 mb-2 py-2 flex flex-row font-light border-gray-500 text-gray-500 dark:text-gray-400 border-y">
+                  <div className="flex flex-col text-center w-full border-r border-gray-500">
+                    <span className="">
                       Dificuldade: {receita.complexidade}
                     </span>
-                    <span className="w-fit ">
-                      Rendimento: {receita.porcoes} porções
-                    </span>
+                    <span className="">Rende: {receita.porcoes} porções</span>
                   </div>
-                  <div className=" flex flex-row justify-between">
-                    <span className="w-fit ">
+                  <div className=" flex flex-col text-center w-full ">
+                    <span className="">
                       Tempo Preparo: {receita.tempoPreparo}
                     </span>
-                    <span className="w-fit ">
-                      Tempo Total: {receita.tempoTotal}
-                    </span>
+                    <span className="">Tempo Total: {receita.tempoTotal}</span>
                   </div>
                 </div>
               </div>

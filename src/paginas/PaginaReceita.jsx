@@ -37,12 +37,12 @@ function PaginaReceita() {
           </div>
         </div>
         {/* Ingredientes e preparo */}
-        <div className="w-full  p-4 grid gap-8 sm:grid-cols-2 ">
+        <div className="w-full  p-4  grid gap-8 sm:grid-cols-2 ">
           {/* Ingredientes */}
           <div className="pt-4 border w-full h-fit text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <span className="text-3xl">Ingredientes</span>
 
-            <div className="m-6 flex flex-col text-gray-700 bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
+            <div className="m-3 flex flex-col text-gray-700 bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
               <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                 {receita.ingredientes.map((ingrediente, id) => {
                   checkboxes.push(false);
@@ -108,7 +108,7 @@ function PaginaReceita() {
           {/* Modo de preparo */}
           <div className="pt-4 border w-full text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <span className="text-3xl">Modo de preparo</span>
-            <div className="m-6 p-2 flex flex-col  bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
+            <div className="m-3 p-2 flex flex-col  bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
               {receita.passos.map((passo, id) => {
                 return (
                   <div

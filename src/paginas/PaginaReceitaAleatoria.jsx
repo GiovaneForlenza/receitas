@@ -6,6 +6,9 @@ import receitas from "../receitas";
 function PaginaReceitaAleatoria() {
   const [recipeCounter, setRecipeCounter] = useState(1);
   const [randomRecipeList, setRandomRecipeList] = useState([]);
+  const lunchRecipes = receitas.filter(
+    (receita) => receita.tags[1] === "Almoço"
+  );
 
   const style = `
   input[type='number']::-webkit-inner-spin-button,
@@ -27,12 +30,7 @@ function PaginaReceitaAleatoria() {
     let randomList = [];
     do {
       let random = getRandomRecipe();
-      if (
-        // randomList.length > 0 &&
-        (randomList.findIndex((recipe) => recipe.id === random.id) === -1 &&
-          random.tags[1] === "Almoço") ||
-        random.tags[1] === "Jantar"
-      ) {
+      if (randomList.findIndex((recipe) => recipe.id === random.id) === -1) {
         randomList.push(random);
         count++;
       }
@@ -41,7 +39,7 @@ function PaginaReceitaAleatoria() {
   }
 
   function getRandomRecipe() {
-    return receitas[Math.floor(Math.random() * receitas.length)];
+    return lunchRecipes[Math.floor(Math.random() * lunchRecipes.length)];
   }
 
   return (
@@ -71,9 +69,10 @@ function PaginaReceitaAleatoria() {
             <button
               data-action="increment"
               className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
-              onClick={() =>
-                setRecipeCounter((recipeCounter) => recipeCounter + 1)
-              }
+              onClick={() => {
+                if (recipeCounter < lunchRecipes.length)
+                  setRecipeCounter((recipeCounter) => recipeCounter + 1);
+              }}
             >
               <span className="m-auto text-2xl font-thin">+</span>
             </button>
@@ -90,7 +89,7 @@ function PaginaReceitaAleatoria() {
         </div>
 
         {/* recipes */}
-        <div className="px-2 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 m-auto w-fit border">
+        <div className="px-2 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 m-auto w-fit">
           {randomRecipeList.length === 0
             ? "No random recipes"
             : randomRecipeList.map((receita) => {

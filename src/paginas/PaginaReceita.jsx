@@ -7,39 +7,39 @@ function PaginaReceita() {
   const receita = receitaSelecionada[0];
   const checkboxes = [];
   return (
-    <div className="w-full h-full mt-20 px-32">
+    <div className="w-full h-full mt-20 lg:px-32 md:px-3">
       <Header />
       {/* Conteúdo */}
       <div className="">
         {/* Foto e título */}
-        <div className="w-[700px]  m-auto">
+        <div className="lg:w-[700px]  w-fill lg:m-auto">
           <img
-            className="m-auto w-full max-h-96 rounded-md object-cover"
+            className="m-auto w-full max-h-96  rounded-md object-cover"
             alt={receita.nome}
             src={`/fotos-receitas/${receita.img}`}
           />
           {/* Título */}
-          <div className="bg-gray-50 shadow dark:bg-gray-800 dark:border-gray-700 w-[600px] m-auto -top-12 relative rounded-sm border ">
-            <div className="p-2 mb-2">
-              <h1 className="text-4xl">{receita.nome}</h1>
+          <div className="bg-gray-50 shadow dark:bg-gray-800 dark:border-gray-700 lg:w-[600px] m-auto lg:-top-12 relative rounded-sm border ">
+            <div className="p-2">
+              <h1 className="text-3xl lg:text-4xl">{receita.nome}</h1>
             </div>
-            <div className="flex text-lg justify-between border-y m-4 border-gray-500 ">
-              <div className="flex flex-col items-center justify-center border-r w-full m-2 border-gray-500 ">
+            <div className="flex flex-row text-sm sm:text-md md:text-lg justify-between border-y  mb-2 mx-2 border-gray-500 ">
+              <div className="flex flex-col items-center justify-center border-r  w-full m-2 border-gray-500 ">
                 <span>Dificuldade: {receita.complexidade}</span>
                 <span>Porções: {receita.porcoes}</span>
               </div>
               <div className="flex flex-col items-center justify-center  w-full">
                 <span>Tempo total: {receita.tempoTotal}</span>
-                <span>Tempo de preparo: {receita.tempoPreparo}</span>
-                <span>Tempo de cozimento: {receita.tempoCozimento}</span>
+                <span>Tempo preparo: {receita.tempoPreparo}</span>
+                <span>Tempo cozimento: {receita.tempoCozimento}</span>
               </div>
             </div>
           </div>
         </div>
         {/* Ingredientes e preparo */}
-        <div className="w-full p-4  grid gap-8 sm:grid-cols-2 ">
+        <div className="w-full mt-4  grid gap-8 sm:grid-cols-2 ">
           {/* Ingredientes */}
-          <div className="pt-4 border w-full text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="pt-4 border w-full text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-fit">
             <span className="text-3xl">Ingredientes</span>
 
             <div className="m-3 flex flex-col text-gray-700 bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
@@ -105,11 +105,11 @@ function PaginaReceita() {
           {/* Modo de preparo */}
           <div className="pt-4 border w-full h-fit text-gray-900 dark:text-white bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <span className="text-3xl">Modo de preparo</span>
-            <div className="m-3 p-2 flex flex-col  bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
+            <div className="m-2 md:m-3  md:p-2 flex flex-col justify-between bg-white dark:bg-gray-900  shadow-md rounded-md bg-clip-border">
               {receita.passos.map((passo, id) => {
                 return (
                   <div
-                    className="bg-slate-800 shadow-md rounded-md text-left p-2 my-1 text-lg flex"
+                    className="bg-slate-800 shadow-md md:rounded-md text-left my-1 first:mt-0 last:mb-0 p-2 md:my-2 text-lg flex"
                     key={id}
                   >
                     <span className="mr-4 text-3xl text-red-500">{id + 1}</span>

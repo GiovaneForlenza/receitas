@@ -13,13 +13,13 @@ function Header() {
             selecionarReceita(null);
             setPaginaAtiva.PAGINAS.HOME;
           }}
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+          className="flex items-center space-x-3 rtl:space-x-reverse  cursor-pointer"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Menu de receitas
           </span>
         </span>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex md:hidden md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -49,13 +49,13 @@ function Header() {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 ">
+            <li className="">
               <span
-                className={`block py-2 px-3 text-white bg-blue-700 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500  rounded md:bg-transparent ${
+                className={`block py-2 px-3 text-white bg-blue-700 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500  rounded md:bg-transparent  ${
                   paginaAtiva === PAGINAS.HOME &&
                   "md:text-blue-700  md:dark:text-blue-500"
-                } md:p-0`}
+                } md:p-0 cursor-pointer`}
                 aria-current="page"
                 onClick={() => {
                   selecionarReceita(null);
@@ -69,8 +69,8 @@ function Header() {
               <span
                 className={`block py-2 px-3 text-white bg-blue-700 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500  rounded md:bg-transparent ${
                   paginaAtiva === PAGINAS.RECEITA_ALEATORIA &&
-                  "md:text-blue-700  md:dark:text-blue-500"
-                } md:p-0`}
+                  "md:text-blue-700  md:dark:text-blue-500 "
+                } md:p-0  cursor-pointer`}
                 onClick={() => {
                   setPaginaAtiva(PAGINAS.RECEITA_ALEATORIA);
                 }}
